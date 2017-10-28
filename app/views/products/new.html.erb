@@ -27,7 +27,14 @@
       event.preventDefault()
       var values = $(this).serialize()
       var product_data = $.product('/products', values)
-      
+      product_data.done(function(data) {
+        var product = data 
+        $("#productName").text(data["name"])
+        $("#productPrice").text(product["price"])
+        $("#productDescription").text(product["description"])
+        $("#productInventory").text(product["inventory"])
+      })
+
     })
   })
 </script>
