@@ -20,3 +20,14 @@
   <p id="productDescription"></p>
   <p id="productInventory"></p>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(fuction(event) {
+      event.preventDefault()
+      var values = $(this).serialize()
+      var product_data = $.product('/products', values)
+      
+    })
+  })
+</script>
