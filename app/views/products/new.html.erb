@@ -22,18 +22,16 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
-  $(function () {
-    $('form').submit(fuction(event) {
-      event.preventDefault()
-      var values = $(this).serialize()
-      var product_data = $.post('/products', values)
-      product_data.done(function(data) {
-        var product = data
-        $("#productName").text(data["name"])
-        $("#productPrice").text(product["price"])
-        $("#productDescription").text(product["description"])
-        $("#productInventory").text(product["inventory"])
-      })
-    })
-  })
+$(function () {
+  $('form').submit(function(event) {
+    event.preventDefault();
+    var values = $(this).serialize();
+    var product = $.post('/products', values);
+    product.done(function(data) {
+      $("#productName").text("Name: " + data["name"]);
+      $("#productPrice").text("Price: " + data["price"]);
+      $("#productDescription").text("Description: " + data["description"]);
+    });
+  });
+});
 </script>
