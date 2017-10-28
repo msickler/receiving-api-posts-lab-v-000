@@ -26,7 +26,7 @@
     $('form').submit(fuction(event) {
       event.preventDefault()
       var values = $(this).serialize()
-      var product_data = $.product('/products', values)
+      var product_data = $.post('/products', values)
       product_data.done(function(data) {
         var product = data
         $("#productName").text(data["name"])
